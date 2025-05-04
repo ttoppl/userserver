@@ -1,8 +1,6 @@
 services:
   - type: web
-    name: flask-websocket-app
+    name: userserver
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: hypercorn app:app
-    plan: free
-    autoDeploy: true
+    startCommand: hypercorn userserver:app --bind 0.0.0.0:$PORT
