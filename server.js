@@ -12,7 +12,10 @@ wss.on("connection", (ws) => {
     try {
       const data = JSON.parse(message);
 
-      if (data.username === "ping") return;
+      if (data.username === "ping") {
+        console.log("ping"); 
+        return;
+      }
 
       username = data.username;
       users[username] = ws;
